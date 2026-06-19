@@ -1,4 +1,3 @@
-```markdown
 # AWS High-Availability WordPress Infrastructure
 
 ## 📖 Overview
