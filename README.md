@@ -31,6 +31,19 @@ Execute the launch script to provision the entire cloud stack using your local A
 * **Wait time:** Allow 3–5 minutes for the AWS Systems Manager (SSM) automation to fully install and configure the LAMP stack and WordPress.
 
 ### 3. Access & Verification
+
+Once the stack shows CREATE_COMPLETE, you need the Public IP to access your site.
+
+Method A: Via AWS CLI
+Pull the active Public IP directly to your terminal by running:
+
+```Bash
+aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" --query "Reservations[*].Instances[*].PublicIpAddress" --output text
+```
+Copy the outputted IP and paste http://<YOUR_PUBLIC_IP> into your browser.
+
+Method B: Via AWS Management Console
+
 Once the stack shows `CREATE_COMPLETE` in your AWS CloudFormation console:
 1. Go to the **EC2 Dashboard**.
 2. Select an instance launched by your Auto Scaling Group.
